@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=League+Spartan:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=League+Spartan:wght@100..900&display=swap');
+* {
+    font-family: DM Sans;
+    color:#fff;
+}
+body {
+    background-color: hsl(243, 96%, 9%);
+    overflow-x: hidden;
+}
+#container {
+    height: 1000px;
+}
+.attribution {
+    position:relative;
+}
+#logo {
+    position:relative;
+    top:25px;
+    left:5%;
+    cursor:pointer;
+}
+#unitsBtn {
+    background-color: hsl(243, 27%, 20%);
+    border: 1px solid transparent;
+    width:5.8rem;
+    height:2.2rem;
+    border-radius:7px;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    position:relative;
+    left:88%;
+    bottom:15px;
+    cursor:pointer;
+}
+#unitsBtn:hover {
+    background-color: hsl(243, 23%, 30%);
+    border:1px solid transparent;
+}
+#menuWrapper {
+    display:none;
+    position: absolute;
+    left:82%;
+    top:80px;
+    z-index:10;
+}
+#menu {
+    background-color: hsl(243, 27%, 20%);
+    border:1px solid hsl(243, 23%, 30%);
+    width:130px;
+    height:350px;
+    font-size:0.8rem;
+    border-radius:10px;
+    cursor:pointer;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 25% 25%;
+    gap:15px;
+    position:relative;
+}
+#menu div {
+    position:reltaive;
+    top:45px;
+}
+#menu #switchTo {
+    position:absolute;
+    top:10px;
+    left:10px;
+    font-weight:500;
+    height: 30px;
+    width:140px;
+    display: flex;
+    align-items: center;
+    padding-left:5px;
+    border-radius:5px;
+}
+#menu #menuTemp {
+    position:relative;
+    right:25px;
+    display:grid;
+    grid-template-columns: 140px;
+    grid-template-rows: 25px 30px 30px;
+}
+#menu #menuWind {
+    position:relative;
+    right:25px;
+    display: grid;
+    grid-template-columns: 140px;
+    grid-template-rows: 25px 30px 30px;
+}
+#menu #menuPrec {
+    position:relative;
+    right:25px;
+    display:grid;
+    grid-template-columns: 140px;
+    grid-template-rows: 25px 30px 30px;
+    gap:5px;
+}
+#menu #menuTemp::before {
+    content:"";
+    width:100%;
+    height:1px;
+    border-bottom:1px solid hsl(243, 23%, 30%);
+    position:absolute;
+    top:90px;
+}
+#menu #menuWind::before {
+    content:"";
+    width:100%;
+    height:1px;
+    border-bottom:1px solid hsl(243, 23%, 30%);
+    position:absolute;
+    top:90px;
+}
+#Celesius , #Fahrenheit , #kmh , #mph , #Millimeters , #Inches  {
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-left:5px;
+    padding-right:5px;
+    border-radius:4px;
+    background-color: hsl(243, 27%, 20%);
+}
+.checkmark {
+    display:none;
+}
+#Celesius:hover , #Fahrenheit:hover ,  #kmh:hover , #mph:hover 
+, #Millimeters:hover , #Inches:hover , #switchTo:hover {
+    background-color: hsl(243, 23%, 30%);
+}
+#mainText {
+    width:fit-content;
+    font-family:Bricolage Grotesque;
+    font-weight: 600;
+    font-size:3.5rem;
+    display:flex;
+    justify-self: center;
+    align-items: center;
+    position:absolute;
+    top:130px;
+}
+#searchWrapper {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width:100%;
+    position: relative;
+    top:140px;
+}
+#searchBox {
+    display:flex;
+    align-items:center;
+    transform: translateX(0%);
+    gap:10px;
+}
+#searchIcon {
+    position:absolute;
+    left:12px;
+    pointer-events: none;
+}
+#searchInp {
+    background-color: hsl(243, 27%, 20%);
+    width: 500px;
+    height:45px;
+    padding: 15px 100px 15px 45px;
+    border-radius: 7px;
+    border:1px solid hsl(243, 23%, 24%);
+    font-size: 16px;
+    outline: none;
+    cursor:pointer;
+}
+#searchInp::placeholder {
+    color:white;
+    font-weight: 300;
+}
+#searchInp:focus {
+    outline:2px solid white;
+}
+#searchInp::-webkit-search-cancel-button {
+    display: none;
+}
+#searchBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:80px;
+    height:45px;
+    padding:20px;
+    border:none;
+    background-color:hsl(233, 67%, 56%);
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:1rem;
+    transition: 0.5s;
+}
+#searchBtn:focus {
+    border:2px solid hsl(243, 96%, 9%);
+    outline:2px solid hsl(233, 67%, 56%);
+}
+#searchBtn:hover {
+    background-color:hsl(248, 70%, 36%);
+}
+#bgToday {
+    background: url("assets/images/bg-today-large.svg") no-repeat;
+    display:flex;
+    flex-direction: column;
+    width:60%;
+    height:285px;
+    position:relative;
+    top:160px;
+    left:5%;
+    place-content: center;
+    gap:5px;
+}
+#place {
+    display:flex;
+    gap:5px;
+    position: relative;
+    left:40px;
+}
+#city , #country {
+    font-weight: 700;
+    font-size:2rem;
+}
+#cal {
+    display:flex;
+    gap:5px;
+    position: relative;
+    left:40px;
+}
+#day , #month , #date {
+    font-size:0.9rem;
+    font-weight:300;
+}
+#info {
+    display:flex;
+    align-items: center;
+    position:absolute;
+    left:520px;
+}
+#weatherIcon {
+    width:120px;
+    height:120px;
+    position: relative;
+}
+#deg {
+    font-size:5rem;
+    font-style: italic;
+}
+#weatherInfo {
+    width:60%;
+    height:110px;
+    display:flex;
+    position:relative;
+    top:200px;
+    left:5%;
+    gap:30px;
+    border-radius: 10px;
+}
+#weatherInfo div {
+    width:25%;
+    height:100%;
+    background-color:hsl(243, 27%, 20%);
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    outline:2px solid hsl(243, 23%, 30%);
+}
+#weatherInfo div span {
+    position:relative;
+    top:20px;
+    left:15px;
+}
+#weatherInfo div .num {
+    font-size:1.8rem;
+    font-weight: 400;
+}
+#weatherInfo div .name {
+    font-size:1.2rem;
+    color:hsl(240, 6%, 70%)
+}
+#week {
+    width:60%;
+    height:180px;
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    position:relative;
+    left:5%;
+    top:220px;
+}
+#headWord {
+    font-size:1.5rem;
+    font-weight: 500;
+}
+#weekDaysWrapper {
+    width:100%;
+    height:180px;
+    display:flex;
+    gap:10px;
+}
+#tue , #wed , #thu , #fri , #sat , #sun , #mon {
+    width:calc(100% / 7);
+    height:180px;
+    background-color:hsl(243, 27%, 20%);
+    border:1px solid hsl(243, 23%, 30%);
+    border-radius:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#weekDaysWrapper div img {
+    width:50px;
+    height:50px;
+}
+.degsWrapper {
+    display:flex;
+    gap:20px;
+}
+#hours {
+    width:290px;
+    height:625px;
+    padding:30px;
+    position:relative;
+    left:67%;
+    bottom:415px;
+    display:flex;
+    flex-direction: column;
+    background-color:hsl(243, 27%, 20%);
+    border:1px solid hsl(243, 23%, 30%);
+    border-radius:25px;
+}
+#hoursHead {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#hoursHeadWord {
+    font-size:1.2rem;
+    font-weight: 500;
+}
+#daysMenuBtn {
+    padding:10px 20px;
+    position:relative;
+    border:none;
+    background-color:hsl(243, 23%, 30%);
+    border-radius:10px;
+    font-size:0.9rem;
+    cursor:pointer;
+}
+#daysMenu {
+    width:180px;
+    height:280px;
+    padding:10px;
+    border-radius:10px;
+    display:none;
+    flex-direction:column;
+    justify-content: space-around;
+    background-color:hsl(243, 27%, 20%);
+    position: absolute;
+    top:85px;
+    border:1px solid hsl(243, 23%, 30%);
+    left:120px;
+    z-index:10;
+    gap:10px;
+    cursor:pointer;
+}
+#daysMenu div {
+    width:160px;
+    padding-left:10px;
+    height: 40px;
+    display:flex;
+    align-items: center;
+    border-radius:5px;
+    font-size:0.9rem;
+    cursor:pointer;
+}
+#daysMenu div:hover {
+    background-color: hsl(243, 23%, 30%);
+}
+#hoursWrapper {
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    position:relative;
+    top:20px;
+    height:90%;
+}
+#hoursWrapper div {
+    height: 10%;
+    background-color:hsl(243, 23%, 24%);
+    border:1px solid hsl(243, 23%, 30%);
+    display: flex;
+    align-items: center;
+    border-radius:8px;
+    font-size:1.2rem;
+}
+#hoursWrapper div img {
+    width:40px;
+    height:40px;
+}
+#hoursWrapper div div {
+    position:relative;
+    left:55%;
+    font-size:1rem;
+}

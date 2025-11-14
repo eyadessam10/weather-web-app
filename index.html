@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Weather app</title><!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution { font-size: 11px; text-align: center; }
+        .attribution a { color: hsl(228, 45%, 44%); }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="logo">
+            <img src="assets/images/logo.svg" alt="">
+        </div>
+        <button id="unitsBtn"><img src="assets/images/icon-units.svg" alt="">Units <img src="assets/images/icon-dropdown.svg" alt=""></button>
+        <div id="menuWrapper">
+            <ul id="menu">
+                <div id="switchTo">Switch to Imperial</div>
+                <div id="menuTemp">
+                    <div style="color:hsl(240, 6%, 70%);">Temperature</div>
+                    <div id="Celesius">Celesius(°C) <img src="assets/images/icon-checkmark.svg" class="checkmark"></div>
+                    <div id="Fahrenheit">Fahrenheit(°F) <img src="assets/images/icon-checkmark.svg" class="checkmark"></div>
+                </div>
+                <div id="menuWind">
+                    <div style="color:hsl(240, 6%, 70%)">Wind Speed</div>
+                    <div id="kmh">km/h <img src="assets/images/icon-checkmark.svg" class="checkmark"></div>
+                    <div id="mph">mph <img src="assets/images/icon-checkmark.svg" class="checkmark"></div>
+                </div>
+                <div id="menuPrec">
+                    <div style="color:hsl(240, 6%, 70%)">Precipitation</div>
+                    <div id="Millimeters">Millimeters(mm) <img src="assets/images/icon-checkmark.svg" class="checkmark"></div>
+                    <div id="Inches">Inches(in) <img src="assets/images/icon-checkmark.svg" class="checkmark"></div>
+                </div>
+            </ul>
+        </div>
+        <div id="mainText">
+            How's the sky looking today
+        </div>
+        <div id="searchWrapper">
+            <div id="searchBox">
+                <img src="assets/images/icon-search.svg" id="searchIcon">
+                <input type="search" id="searchInp" placeholder="Search for a place..." autocomplete="off">
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+        <div id="bgToday">
+            <div id="place">
+                <div id="city"></div>
+                <div id="country"></div>
+            </div>
+            <div id="cal">
+                <div id="bgDay"></div>
+                <div id="bgMonth"></div>
+                <div id="bgDate"></div>
+            </div>
+            <div id="info">
+                <img src="assets/images/icon-sunny.webp" id="weatherIcon">
+                <div id="deg">--</div>
+            </div>
+        </div>
+        <div id="weatherInfo">
+            <div id="feelsLike"><span class="name">Feels Like</span><span class="num">--</span></div>
+            <div id="humidity"><span class="name">Humidty</span><span class="num">--</span></div>
+            <div id="windSpeed"><span class="name">Wind</span><span class="num">--</span></div>
+            <div id="prec"><span class="name">Precipitation</span><span class="num">--</span></div>
+        </div>
+        <div id="week">
+            <div id="headWord">Daily forecast</div>
+            <div id="weekDaysWrapper">
+                <div id="tue">
+                    <div>Tue</div>
+                    <img src="assets/images/icon-rain.webp" alt="">
+                    <div id="tueDegsWrapper" class="degsWrapper">
+                        <div id="tueGreatDeg" class="great">--</div>
+                        <div id="tueSmallDeg" class="small">--</div>
+                    </div>
+                </div>
+                <div id="wed">
+                    <div>Wed</div>
+                    <img src="assets/images/icon-drizzle.webp" alt="">
+                    <div id="wedDegsWrapper" class="degsWrapper">
+                        <div id="wedGreatDeg" class="great">--</div>
+                        <div id="wedSmallDeg" class="small">--</div>
+                    </div>
+                </div>
+                <div id="thu">
+                    <div>Thu</div>
+                    <img src="assets/images/icon-sunny.webp" alt="">
+                    <div id="thuDegsWrapper" class="degsWrapper">
+                        <div id="thuGreatDeg" class="great">--</div>
+                        <div id="thuSmallDeg" class="small">--</div>
+                    </div>
+                </div>
+                <div id="fri">
+                    <div>Fri</div>
+                    <img src="assets/images/icon-partly-cloudy.webp" alt="">
+                    <div id="friDegsWrapper" class="degsWrapper">
+                        <div id="friGreatDeg" class="great">--</div>
+                        <div id="friSmallDeg" class="small">--</div>
+                    </div>
+                </div>
+                <div id="sat">
+                    <div>sat</div>
+                    <img src="assets/images/icon-storm.webp" alt="">
+                    <div id="satDegsWrapper" class="degsWrapper">
+                        <div id="friGreatDeg" class="great">--</div>
+                        <div id="friSmallDeg" class="small">--</div>
+                    </div>
+                </div>
+                <div id="sun">
+                    <div>Sun</div>
+                    <img src="assets/images/icon-snow.webp" alt="">
+                    <div id="sunDegsWrapper" class="degsWrapper">
+                        <div id="sunGreatDeg" class="great">--</div>
+                        <div id="sunSmallDeg" class="small">--</div>
+                    </div>
+                </div>
+                <div id="mon">
+                    <div>Mon</div>
+                    <img src="assets/images/icon-fog.webp" alt="">
+                    <div id="monDegsWrapper" class="degsWrapper">
+                        <div id="monGreatDeg" class="great">--</div>
+                        <div id="monSmallDeg" class="small">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="hours">
+            <div id="hoursHead">
+                <div id="hoursHeadWord">Hourly forecast</div>
+                <button id="daysMenuBtn">Tuesday <img src="assets/images/icon-dropdown.svg" alt=""></button>
+            </div>
+            <div id="daysMenu">
+                <div id="day1">Monday</div>
+                <div id="day2">Tuesday</div>
+                <div id="day3">Wednesday</div>
+                <div id="day4">Thrusday</div>
+                <div id="day5">Friday</div>
+                <div id="day6">Saturday</div>
+                <div id="day7">Sunday</div>
+            </div>
+            <div id="hoursWrapper">
+                <div id="three"><img src="assets/images/icon-overcast.webp" id="threeIcon">3 PM <div id="threeDeg" class="hd">--</div></div>
+                <div id="four"><img src="assets/images/icon-partly-cloudy.webp" id="fourIcon">4 PM <div id="fourDeg" class="hd">--</div></div>
+                <div id="five"><img src="assets/images/icon-sunny.webp" id="fiveIcon">5 PM <div id="fiveDeg" class="hd">--</div></div>
+                <div id="six"><img src="assets/images/icon-overcast.webp" id="sixIcon">6 PM <div id="sixDeg" class="hd">--</div></div>
+                <div id="seven"><img src="assets/images/icon-snow.webp" id="sevenIcon">7 PM <div id="sevenDeg" class="hd">--</div></div>
+                <div id="eight"><img src="assets/images/icon-fog.webp" id="eightIcon">8 PM <div id="eightDeg" class="hd">--</div></div>
+                <div id="nine"><img src="assets/images/icon-snow.webp" id="nineIcon">9 PM <div id="nineDeg" class="hd">--</div></div>
+                <div id="ten"><img src="assets/images/icon-overcast.webp" id="tenIcon">10 PM <div id="tenDeg" class="hd">--</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+        Coded by <a href="#">Eyad Essam</a>.
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
